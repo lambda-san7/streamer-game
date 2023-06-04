@@ -54,7 +54,21 @@ scene = None
 class main_menu:
     def handle():
         window.fill((255,0,148))
-        window.blit(menu_icon,((pygame.display.Info().current_w / 2) - 100,10))
+        window.blit(menu_icon,((pygame.display.Info().current_w / 2) - 100,20))
+        msg = text(32,"Start Streaming")
+        if (pygame.mouse.get_pos()[0] < (pygame.display.Info().current_w / 2) - (msg.w / 2) + msg.w and
+            pygame.mouse.get_pos()[0] > (pygame.display.Info().current_w / 2) - (msg.w / 2) and
+            pygame.mouse.get_pos()[1] < 2.5 * 100 + msg.h and
+            pygame.mouse.get_pos()[1] > 2.5 * 100):
+            msg.color = (255,126,201)
+            if pygame.mouse.get_pressed()[0]:
+                print("clicked")
+        msg.render((pygame.display.Info().current_w / 2) - (msg.w / 2), 2.5 * 100)
+
+class main_menu:
+    def handle():
+        window.fill((255,0,148))
+        window.blit(menu_icon,((pygame.display.Info().current_w / 2) - 100,20))
         msg = text(32,"Start Streaming")
         if (pygame.mouse.get_pos()[0] < (pygame.display.Info().current_w / 2) - (msg.w / 2) + msg.w and
             pygame.mouse.get_pos()[0] > (pygame.display.Info().current_w / 2) - (msg.w / 2) and
